@@ -39,7 +39,7 @@ const projectsData = [
 export const Projects = () => {
   return (
     <Section id="projects" title="Featured Projects" subtitle="Showcasing my best work in Full Stack Development.">
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
         {projectsData.map((project, idx) => (
           <motion.div
             key={idx}
@@ -48,16 +48,17 @@ export const Projects = () => {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.5, delay: idx * 0.1 }}
           >
-            <Card className="h-full flex flex-col group">
+            <Card className="h-full flex flex-col group overflow-hidden">
               <div className="relative h-48 sm:h-56 overflow-hidden">
                 <div className="absolute inset-0 bg-indigo-500/20 mix-blend-overlay z-10"></div>
                 <img
                   src={project.image}
                   alt={project.title}
+                  loading="lazy"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
               </div>
-              <div className="p-6 flex-1 flex flex-col">
+              <div className="p-5 md:p-6 flex-1 flex flex-col">
                 <h3 className="text-xl font-bold text-white mb-3 group-hover:text-cyan-400 transition-colors">
                   {project.title}
                 </h3>
@@ -66,17 +67,25 @@ export const Projects = () => {
                 </p>
                 <div className="flex flex-wrap gap-2 mb-6">
                   {project.tags.map((tag, tIdx) => (
-                    <span key={tIdx} className="text-xs font-medium text-indigo-300 bg-indigo-500/10 px-2.5 py-1 rounded-md">
+                    <span key={tIdx} className="text-[10px] sm:text-xs font-medium text-indigo-300 bg-indigo-500/10 px-2.5 py-1 rounded-md">
                       {tag}
                     </span>
                   ))}
                 </div>
-                <div className="flex items-center gap-4 pt-4 border-t border-white/10">
-                  <a href={project.github} className="text-gray-400 hover:text-white transition-colors flex items-center gap-2 text-sm font-medium">
-                    <FaGithub size={16} /> Code
+                <div className="flex items-center gap-6 pt-4 border-t border-white/10">
+                  <a 
+                    href={project.github} 
+                    className="text-gray-400 hover:text-white transition-colors flex items-center gap-2 text-sm font-medium py-1"
+                    aria-label={`View ${project.title} source code on GitHub`}
+                  >
+                    <FaGithub size={18} /> <span className="hidden sm:inline">Code</span>
                   </a>
-                  <a href={project.live} className="text-gray-400 hover:text-cyan-400 transition-colors flex items-center gap-2 text-sm font-medium">
-                    <ExternalLink size={16} /> Live Demo
+                  <a 
+                    href={project.live} 
+                    className="text-gray-400 hover:text-cyan-400 transition-colors flex items-center gap-2 text-sm font-medium py-1"
+                    aria-label={`View ${project.title} live demo`}
+                  >
+                    <ExternalLink size={18} /> <span className="hidden sm:inline">Live Demo</span>
                   </a>
                 </div>
               </div>

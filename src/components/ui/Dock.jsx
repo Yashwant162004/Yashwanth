@@ -115,23 +115,36 @@ export default function Dock({
 }) {
   const mouseX = useMotionValue(Infinity);
   const isHovered = useMotionValue(0);
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
+
+  useEffect(() => {
+    setIsTouchDevice(window.matchMedia('(pointer: coarse)').matches);
+  }, []);
 
   const heightRow = useTransform(isHovered, [0, 1], [panelHeight, panelHeight + 10]);
   const height = useSpring(heightRow, spring);
 
+  // If touch device, we don't want magnification as there's no mouse cursor
+  const effectiveDistance = isTouchDevice ? 0 : distance;
+
   return (
-    <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-[100] pointer-events-none">
-      <motion.div style={{ height, scrollbarWidth: 'none' }} className="flex items-center pointer-events-auto">
+    <div className="fixed bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 z-[100] pointer-events-none w-full flex justify-center px-4">
+      <motion.div 
+        style={{ height: isTouchDevice ? panelHeight : height, scrollbarWidth: 'none' }} 
+        className="flex items-center pointer-events-auto max-w-full overflow-x-auto no-scrollbar"
+      >
         <motion.div
           onMouseMove={({ clientX }) => {
+            if (isTouchDevice) return;
             isHovered.set(1);
             mouseX.set(clientX);
           }}
           onMouseLeave={() => {
+            if (isTouchDevice) return;
             isHovered.set(0);
             mouseX.set(Infinity);
           }}
-          className={`${className} flex items-end w-fit gap-3 rounded-[24px] border-white/10 border bg-white/5 backdrop-blur-2xl pb-3 px-3 shadow-2xl`}
+          className={`${className} flex items-end w-fit gap-2 sm:gap-3 rounded-[24px] border-white/10 border bg-white/5 backdrop-blur-2xl pb-3 px-3 shadow-2xl overflow-visible`}
           style={{ height: panelHeight }}
           role="toolbar"
           aria-label="Application dock"
@@ -143,9 +156,9 @@ export default function Dock({
               className={item.className}
               mouseX={mouseX}
               spring={spring}
-              distance={distance}
+              distance={effectiveDistance}
               magnification={magnification}
-              baseItemSize={baseItemSize}
+              baseItemSize={isTouchDevice ? 40 : baseItemSize}
             >
               <DockIcon>{item.icon}</DockIcon>
               <DockLabel>{item.label}</DockLabel>

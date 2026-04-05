@@ -50,8 +50,8 @@ const techLogos = [
 export const Skills = () => {
   return (
     <Section id="skills" title="Technical Skills" subtitle="Technologies I work with to bring ideas to life.">
-      <Card className="p-1 md:p-8 overflow-hidden relative border-white/5 bg-white/[0.02]">
-        <div className="grid md:grid-cols-2 gap-6 p-4 md:p-0">
+      <Card className="p-1 sm:p-4 md:p-8 overflow-hidden relative border-white/5 bg-white/[0.02]">
+        <div className="grid md:grid-cols-2 gap-4 md:gap-6 p-3 sm:p-4 md:p-0">
           {skillsData.map((group, idx) => (
             <motion.div
               key={idx}
@@ -59,9 +59,9 @@ export const Skills = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className="p-6 rounded-2xl bg-white/[0.03] border border-white/5 hover:bg-white/[0.05] transition-colors group"
+              className="p-5 md:p-6 rounded-2xl bg-white/[0.03] border border-white/5 hover:bg-white/[0.05] transition-colors group"
             >
-              <h3 className="text-xl font-bold text-white mb-6 flex items-center gap-3">
+              <h3 className="text-lg md:text-xl font-bold text-white mb-4 md:mb-6 flex items-center gap-3">
                 <span className={`w-2 h-2 rounded-full bg-gradient-to-r ${group.color} shadow-[0_0_10px_rgba(34,211,238,0.5)]`}></span>
                 {group.category}
               </h3>
@@ -69,7 +69,7 @@ export const Skills = () => {
                 {group.skills.map((skill, sIdx) => (
                   <span
                     key={sIdx}
-                    className="px-3 py-1.5 bg-white/5 border border-white/10 rounded-lg text-xs font-medium text-gray-400 group-hover:text-gray-200 transition-colors"
+                    className="px-2.5 py-1.5 bg-white/5 border border-white/10 rounded-lg text-[10px] sm:text-xs font-medium text-gray-400 group-hover:text-gray-200 transition-colors"
                   >
                     {skill}
                   </span>
@@ -79,12 +79,12 @@ export const Skills = () => {
           ))}
         </div>
 
-        <div className="mt-12 pt-8 border-t border-white/5 relative bg-gradient-to-b from-transparent to-white/[0.01]">
+        <div className="mt-8 md:mt-12 pt-6 md:pt-8 border-t border-white/5 relative bg-gradient-to-b from-transparent to-white/[0.01]">
           <LogoLoop 
             logos={techLogos} 
-            speed={25} 
-            gap={100}
-            logoHeight={45}
+            speed={30} 
+            gap={60}
+            logoHeight={35}
             className="opacity-40 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-1000"
           />
         </div>

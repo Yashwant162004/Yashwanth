@@ -9,11 +9,23 @@
 }
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+  }
+
   body {
     background-color: var(--color-brand-dark);
     color: var(--color-brand-text);
     font-family: var(--font-inter);
-    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  /* Improve tap targets on mobile */
+  * {
+    -webkit-tap-highlight-color: transparent;
   }
 }
 

@@ -33,15 +33,16 @@ export const About = () => {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
+          className="flex justify-center"
         >
-          <div className="relative group flex justify-center w-full">
+          <div className="relative group w-full max-w-[400px]">
             <div className="absolute -inset-1 bg-gradient-to-r from-indigo-500 to-cyan-500 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
             <TiltedCard
               imageSrc={profileImg}
               altText="Yashwanth Profile"
               captionText="Passion for Coding"
-              containerHeight="580px"
-              containerWidth="400px"
+              containerHeight="clamp(300px, 70vh, 580px)"
+              containerWidth="100%"
               imageHeight="100%"
               imageWidth="100%"
               imagePosition="center 10%"

@@ -71,7 +71,7 @@ export const Contact = () => {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="md:col-span-3"
         >
-          <Card className="p-8">
+          <Card className="p-5 sm:p-8">
             <form 
               action="https://formspree.io/f/yashwantham10@gmail.com" 
               method="POST"

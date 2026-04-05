@@ -54,7 +54,7 @@ export const Hero = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-5xl md:text-7xl lg:text-8xl font-black mb-6 tracking-tight text-white"
+          className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black mb-6 tracking-tight text-white px-4"
         >
           Yashwanth <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-cyan-400">A M</span>
         </motion.h1>
@@ -63,7 +63,7 @@ export const Hero = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-xl md:text-2xl text-gray-300 mb-4 font-light"
+          className="text-lg sm:text-xl md:text-2xl text-gray-300 mb-4 font-light px-6"
         >
           Full Stack Developer Intern | React Native | MERN Stack
         </motion.p>
@@ -72,7 +72,7 @@ export const Hero = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="text-lg text-gray-400 mb-12 max-w-2xl mx-auto"
+          className="text-base sm:text-lg text-gray-400 mb-8 md:mb-12 max-w-2xl mx-auto px-6"
         >
           "Building scalable web and mobile applications"
         </motion.p>
@@ -81,15 +81,15 @@ export const Hero = () => {
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-6"
+          className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 px-6"
         >
-          <Link to="projects" smooth={true} duration={500} offset={-80}>
-            <Button variant="primary" className="w-full sm:w-auto">
+          <Link to="projects" smooth={true} duration={500} offset={-80} className="w-full sm:w-auto">
+            <Button variant="primary" className="w-full">
               View Projects <ArrowRight size={18} />
             </Button>
           </Link>
-          <Link to="contact" smooth={true} duration={500} offset={-80}>
-            <Button variant="outline" className="w-full sm:w-auto">
+          <Link to="contact" smooth={true} duration={500} offset={-80} className="w-full sm:w-auto">
+            <Button variant="outline" className="w-full">
               Contact Me <Mail size={18} />
             </Button>
           </Link>

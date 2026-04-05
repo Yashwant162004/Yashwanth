@@ -28,13 +28,13 @@ const certData = [
 export const Education = () => {
   return (
     <Section id="education" title="Education & Certifications" subtitle="My academic background and professional qualifications.">
-      <div className="grid lg:grid-cols-2 gap-12">
+      <div className="grid lg:grid-cols-2 gap-8 md:gap-12">
         {/* Education Route */}
-        <div>
-          <h3 className="text-2xl font-bold text-white mb-8 flex items-center gap-3">
+        <div className="space-y-6">
+          <h3 className="text-xl md:text-2xl font-bold text-white mb-4 md:mb-8 flex items-center gap-3">
             <BookOpen className="text-indigo-400" /> Academic Journey
           </h3>
-          <div className="space-y-6">
+          <div className="space-y-4 md:space-y-6">
             {educationData.map((edu, idx) => (
               <motion.div
                 key={idx}
@@ -43,13 +43,13 @@ export const Education = () => {
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
               >
-                <Card className="p-6 relative overflow-hidden group">
+                <Card className="p-5 md:p-6 relative overflow-hidden group">
                   <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
                     {edu.icon}
                   </div>
-                  <h4 className="text-xl font-bold text-white mb-2 pr-12">{edu.degree}</h4>
-                  <p className="text-gray-400 mb-4">{edu.institution}</p>
-                  <div className="inline-flex items-center px-3 py-1 rounded-full bg-white/5 border border-white/10 text-sm font-medium text-cyan-400">
+                  <h4 className="text-lg md:text-xl font-bold text-white mb-2 pr-12">{edu.degree}</h4>
+                  <p className="text-gray-400 text-sm md:text-base mb-4">{edu.institution}</p>
+                  <div className="inline-flex items-center px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs md:text-sm font-medium text-cyan-400">
                     {edu.score}
                   </div>
                 </Card>
